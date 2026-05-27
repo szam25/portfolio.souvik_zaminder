@@ -41,6 +41,10 @@ header {
   gap: 20px;
 }
 
+.logo {
+  flex: 1;
+}
+
 .logo h1 {
   font-size: 1.8em;
   color: var(--primary-color);
@@ -69,6 +73,7 @@ header {
   border: none;
   cursor: pointer;
   padding: 5px;
+  margin-left: auto;
 }
 
 .hamburger span {
@@ -446,22 +451,32 @@ footer p {
 /* Responsive Design */
 @media (max-width: 768px) {
   .header-container {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    flex: 1;
   }
 
   .hamburger {
     display: flex;
+    margin-left: auto;
   }
 
   .nav-menu {
     display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
     flex-direction: column;
-    width: 100%;
-    background: var(--bg-light);
+    background: white;
     padding: 15px;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     gap: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   }
 
   .nav-menu.active {
@@ -469,10 +484,11 @@ footer p {
   }
 
   .nav-link {
-    padding: 12px;
+    padding: 12px 15px;
     width: 100%;
     border-bottom: none;
     border-left: 3px solid transparent;
+    justify-content: flex-start;
   }
 
   .nav-link.active,
@@ -482,9 +498,7 @@ footer p {
   }
 
   .profile-pic {
-    display: block;
-    width: 80px;
-    height: 80px;
+    display: none;
   }
 
   .container {
@@ -525,7 +539,7 @@ footer p {
   }
 
   .header-container {
-    gap: 15px;
+    gap: 10px;
   }
 
   .logo h1 {
