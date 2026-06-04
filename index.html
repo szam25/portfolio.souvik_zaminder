@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Souvik Zaminder | Assoc. Architect & Sr. Frontend Engineer</title>
-    <!-- Tailwind CSS Engine -->
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- External Typography Layers -->
+    
+    <!-- External Stylesheets -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="selection:bg-amber-200 selection:text-black antialiased">
 
-    <!-- Header Navigation -->
+    <!-- ============================================
+         HEADER NAVIGATION
+         ============================================ -->
     <header class="w-full py-6 px-6 md:px-12 flex justify-between items-center border-b accent-border fixed top-0 bg-[#0B0F19]/90 backdrop-blur-md z-50">
         <div class="text-xl font-bold tracking-widest text-white">SOUVIK ZAMINDER</div>
+        
         <nav class="hidden md:flex space-x-8 text-sm tracking-wider uppercase opacity-80">
             <a href="#about" class="hover:text-[#F3D3A8] transition-colors">Profile</a>
             <a href="#skills" class="hover:text-[#F3D3A8] transition-colors">Architecture</a>
@@ -21,18 +26,23 @@
             <a href="#experience" class="hover:text-[#F3D3A8] transition-colors">Journey</a>
             <a href="#contact" class="hover:text-[#F3D3A8] transition-colors">Contact</a>
         </nav>
+        
         <a href="#contact" class="md:hidden border accent-border px-4 py-2 text-xs uppercase tracking-widest hover:bg-[#F3D3A8] hover:text-black transition-all">Get In Touch</a>
     </header>
 
-    <!-- Go to Top Button (Mobile) -->
-    <button id="goTopBtn" class="fixed bottom-8 right-6 md:hidden w-12 h-12 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-lg hover:bg-white transition-all duration-300 opacity-0 pointer-events-none">
+    <!-- ============================================
+         GO TO TOP BUTTON (Mobile Only)
+         ============================================ -->
+    <button id="goTopBtn" class="fixed bottom-8 right-6 md:hidden w-12 h-12 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-lg hover:bg-white transition-all duration-300 pointer-events-none opacity-0">
         ↑
     </button>
 
-    <!-- Chatbot Widget (Desktop Only) -->
+    <!-- ============================================
+         CHATBOT WIDGET (Desktop Only)
+         ============================================ -->
     <div id="chatWidget" class="hidden md:flex fixed bottom-6 right-6 flex-col z-40 w-96 h-[600px] bg-[#0B0F19] border accent-border rounded-lg shadow-2xl overflow-hidden">
         <!-- Chat Header -->
-        <div class="bg-gradient-to-r from-[#F3D3A8] to-[#D4A574] px-6 py-4 flex justify-between items-center">
+        <div class="chat-header">
             <div>
                 <h3 class="text-black font-semibold text-sm">Ask Souvik</h3>
                 <p class="text-xs text-black/70">Architecture & Frontend Expertise</p>
@@ -41,10 +51,10 @@
         </div>
 
         <!-- Chat Messages Container -->
-        <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0B0F19]/50">
+        <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4">
             <!-- Welcome Message -->
             <div class="flex justify-start">
-                <div class="bg-white/10 border accent-border rounded-lg px-4 py-2 max-w-xs text-sm opacity-90">
+                <div class="message-bubble bot">
                     <p>Hi! I'm an AI assistant trained on Souvik's portfolio. Ask me about:</p>
                     <ul class="text-xs opacity-70 mt-2 space-y-1">
                         <li>• Frontend Architecture & Design Systems</li>
@@ -58,57 +68,60 @@
 
         <!-- Quick Action Buttons -->
         <div id="quickActions" class="px-4 py-3 space-y-2 border-t accent-border bg-white/5">
-            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">💡 Design System Approach</button>
-            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">⚡ Performance Wins</button>
-            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">📧 Contact Info</button>
+            <button class="quick-action-btn">💡 Design System Approach</button>
+            <button class="quick-action-btn">⚡ Performance Wins</button>
+            <button class="quick-action-btn">📧 Contact Info</button>
         </div>
 
         <!-- Chat Input -->
-        <div class="border-t accent-border p-4 bg-white/5">
-            <div class="flex gap-2">
-                <input id="chatInput" type="text" placeholder="Ask anything..." class="flex-1 bg-white/10 border accent-border rounded px-3 py-2 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-1 focus:ring-[#F3D3A8]">
-                <button id="sendBtn" class="bg-[#F3D3A8] text-black px-4 py-2 rounded font-semibold text-xs hover:bg-white transition-all">Send</button>
-            </div>
+        <div class="chat-input-container">
+            <input id="chatInput" type="text" placeholder="Ask anything..." class="flex-1 bg-white/10 border accent-border rounded px-3 py-2 text-sm text-white placeholder-white/40 focus:outline-none">
+            <button id="sendBtn" class="bg-[#F3D3A8] text-black px-4 py-2 rounded font-semibold text-xs hover:bg-white transition-all">Send</button>
         </div>
     </div>
 
-    <!-- Chat Toggle Button (Desktop Only) -->
-    <button id="chatToggleBtn" class="hidden md:flex fixed bottom-6 right-6 w-14 h-14 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-xl hover:bg-white transition-all">
+    <!-- ============================================
+         CHAT TOGGLE BUTTON (Desktop Only)
+         ============================================ -->
+    <button id="chatToggleBtn" class="hidden md:flex fixed bottom-6 right-6 w-14 h-14 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-xl hover:bg-white transition-all z-40">
         💬
     </button>
 
+    <!-- ============================================
+         MAIN CONTENT
+         ============================================ -->
     <main class="pt-32 px-6 md:px-12 max-w-7xl mx-auto">
         
-        <!-- HERO SECTION: Identity & Core Pillars -->
-        <section id="about" class="grid grid-cols-1 lg:grid-cols-12 gap-12 py-12 border-b accent-border">
+        <!-- HERO SECTION -->
+        <section id="about" class="hero-section">
             <div class="lg:col-span-8">
                 <span class="accent-text text-sm uppercase tracking-widest block mb-4">Associate Architect & Senior Frontend Engineer</span>
-                <h1 class="text-4xl md:text-6xl font-light tracking-tight leading-tight serif-font text-white mb-6">
-                    Bridging design intent and <span class="italic">engineering rigor</span> through scalable architectures.
+                <h1 class="hero-title">
+                    Bridging design intent and <span class="italic-span">engineering rigor</span> through scalable architectures.
                 </h1>
-                <p class="text-lg opacity-70 max-w-2xl font-light leading-relaxed mb-8">
-                    Senior frontend engineer with 9+ years shipping scalable, high-performance web applications at global IT consultancies Cognizant, TCS and Infosys. Specialist in Angular & React ecosystem.
+                <p class="hero-description">
+                    Senior frontend engineer with 9+ years shipping scalable, high-performance web applications at global IT consultancies Cognizant, TCS and Infosys. Specialist in Angular & React ecosystems, design systems, performance optimization and WCAG-compliant accessible UX.
                 </p>
                 
                 <!-- Tech Tags -->
-                <div class="flex flex-wrap gap-2 mb-8">
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">Angular 20+</span>
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">React.js</span>
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">TypeScript</span>
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">Microfrontends</span>
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">GraphQL</span>
-                    <span class="px-4 py-1.5 border accent-border rounded-full text-xs uppercase tracking-wider text-white bg-white/5">Design Systems</span>
+                <div class="tech-tags">
+                    <span class="tech-tag">Angular 20+</span>
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">TypeScript</span>
+                    <span class="tech-tag">Microfrontends</span>
+                    <span class="tech-tag">GraphQL</span>
+                    <span class="tech-tag">Design Systems</span>
                 </div>
             </div>
             
             <!-- Side Contact Sidebar -->
-            <div class="lg:col-span-4 lg:pl-8 flex flex-col justify-between py-2">
+            <div class="sidebar">
                 <div>
-                    <h3 class="text-xs uppercase tracking-widest accent-text mb-4">Location & Coordinates</h3>
+                    <h3>Location & Coordinates</h3>
                     <p class="text-sm opacity-90 mb-6">Bengaluru, Karnataka, India</p>
                     
-                    <h3 class="text-xs uppercase tracking-widest accent-text mb-2">Signature Wins</h3>
-                    <ul class="text-xs space-y-3 opacity-80">
+                    <h3>Signature Wins</h3>
+                    <ul class="signature-wins">
                         <li>★ <strong>Star Performer Award</strong> — Accessibility Excellence</li>
                         <li>⚡ <strong>35-40%</strong> Bundle Size Reduction (~1MB+ Shed)</li>
                         <li>🛠️ <strong>~30% Dev Effort Saved</strong> via Reusable Libraries</li>
@@ -118,179 +131,181 @@
         </section>
 
         <!-- STATS GRID -->
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-6 py-12 border-b accent-border text-center lg:text-left">
-            <div class="p-6 bg-white/5 border accent-border rounded-lg">
-                <div class="text-4xl md:text-5xl font-light accent-text mb-2 serif-font">9+</div>
-                <div class="text-xs uppercase tracking-widest opacity-60">Years Building For The Web</div>
+        <section class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number">9+</div>
+                <div class="stat-label">Years Building For The Web</div>
             </div>
-            <div class="p-6 bg-white/5 border accent-border rounded-lg">
-                <div class="text-4xl md:text-5xl font-light accent-text mb-2 serif-font">35%</div>
-                <div class="text-xs uppercase tracking-widest opacity-60">Avg Load-Time Improvement</div>
+            <div class="stat-card">
+                <div class="stat-number">35%</div>
+                <div class="stat-label">Avg Load-Time Improvement</div>
             </div>
-            <div class="p-6 bg-white/5 border accent-border rounded-lg">
-                <div class="text-4xl md:text-5xl font-light accent-text mb-2 serif-font">1MB+</div>
-                <div class="text-xs uppercase tracking-widest opacity-60">Bundle Size Shed</div>
+            <div class="stat-card">
+                <div class="stat-number">1MB+</div>
+                <div class="stat-label">Bundle Size Shed</div>
             </div>
-            <div class="p-6 bg-white/5 border accent-border rounded-lg">
-                <div class="text-4xl md:text-5xl font-light accent-text mb-2 serif-font">Zero</div>
-                <div class="text-xs uppercase tracking-widest opacity-60">Defect Production Releases</div>
+            <div class="stat-card">
+                <div class="stat-number">Zero</div>
+                <div class="stat-label">Defect Production Releases</div>
             </div>
         </section>
 
         <!-- CORE COMPETENCIES / SKILLS -->
-        <section id="skills" class="py-16 border-b accent-border">
-            <h2 class="text-xs uppercase tracking-widest accent-text mb-12">Skills & Architecture Pillars</h2>
+        <section id="skills" class="skills-section">
+            <h2>Skills & Architecture Pillars</h2>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="skills-grid">
                 <!-- Pillar 1 -->
-                <div class="space-y-4">
-                    <div class="w-8 h-8 rounded-full border accent-border flex items-center justify-center text-xs accent-text">01</div>
-                    <h3 class="text-lg font-medium text-white">Design Systems</h3>
-                    <p class="text-sm opacity-60 leading-relaxed">Token-driven component libraries with consistent spacing, typography, color and a11y baked in—adopted across squads to compound velocity.</p>
+                <div class="skill-card">
+                    <div class="skill-number">01</div>
+                    <h3>Design Systems</h3>
+                    <p>Token-driven component libraries with consistent spacing, typography, color and a11y baked in—adopted across squads to compound velocity and ensure brand consistency.</p>
                 </div>
+                
                 <!-- Pillar 2 -->
-                <div class="space-y-4">
-                    <div class="w-8 h-8 rounded-full border accent-border flex items-center justify-center text-xs accent-text">02</div>
-                    <h3 class="text-lg font-medium text-white">Microfrontends</h3>
-                    <p class="text-sm opacity-60 leading-relaxed">Independent, domain-aligned UI modules inside large-scale monorepos—composable, deployable, and testable in isolation.</p>
+                <div class="skill-card">
+                    <div class="skill-number">02</div>
+                    <h3>Microfrontends</h3>
+                    <p>Independent, domain-aligned UI modules inside large-scale monorepos—composable, deployable, and testable in isolation.</p>
                 </div>
+                
                 <!-- Pillar 3 -->
-                <div class="space-y-4">
-                    <div class="w-8 h-8 rounded-full border accent-border flex items-center justify-center text-xs accent-text">03</div>
-                    <h3 class="text-lg font-medium text-white">Performance First</h3>
-                    <p class="text-sm opacity-60 leading-relaxed">Bundle budgets, code-splitting, lazy routes and image strategy that move Core Web Vitals into the green and shrink time-to-interactive.</p>
+                <div class="skill-card">
+                    <div class="skill-number">03</div>
+                    <h3>Performance First</h3>
+                    <p>Bundle budgets, code-splitting, lazy routes and image strategy that move Core Web Vitals into the green and shrink time-to-interactive significantly.</p>
                 </div>
+                
                 <!-- Pillar 4 -->
-                <div class="space-y-4">
-                    <div class="w-8 h-8 rounded-full border accent-border flex items-center justify-center text-xs accent-text">04</div>
-                    <h3 class="text-lg font-medium text-white">Inclusive UX</h3>
-                    <p class="text-sm opacity-60 leading-relaxed">WCAG 2.1 AA interactions, keyboard navigation, semantic markup and screen-reader-grade flows—usability and inclusion as a baseline.</p>
+                <div class="skill-card">
+                    <div class="skill-number">04</div>
+                    <h3>Inclusive UX</h3>
+                    <p>WCAG 2.1 AA interactions, keyboard navigation, semantic markup and screen-reader-grade flows—usability and inclusion as a baseline.</p>
                 </div>
             </div>
         </section>
 
         <!-- PAST EXPERIENCE SECTION -->
-        <section id="past-clients" class="py-16 border-b accent-border">
-            <h2 class="text-xs uppercase tracking-widest accent-text mb-12">Past Experience & Enterprise Portals</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white/5 border accent-border rounded-lg transition-all duration-300 hover:bg-white/10">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-medium text-white group-hover:text-[#F3D3A8] transition-colors">Spectrum</h3>
-                        <span class="text-xs font-mono opacity-40 group-hover:opacity-100 transition-opacity">↗</span>
-                    </div>
-                    <p class="text-xs opacity-50 font-mono mb-3">spectrum.com</p>
-                    <p class="text-xs opacity-70 leading-relaxed">Delivering highly scalable telecommunication interfaces and customer digital ecosystems.</p>
+        <section id="past-clients" class="clients-section">
+            <h2>Past Experience & Enterprise Portals</h2>
+            <div class="clients-grid">
+                <a href="https://www.spectrum.com" target="_blank" rel="noopener noreferrer" class="client-card">
+                    <h3>
+                        Spectrum
+                        <span class="external-link">↗</span>
+                    </h3>
+                    <p class="client-url">spectrum.com</p>
+                    <p class="client-description">Delivering highly scalable telecommunication interfaces and customer digital ecosystems.</p>
                 </a>
 
-                <a href="https://www.aetna.com" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white/5 border accent-border rounded-lg transition-all duration-300 hover:bg-white/10">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-medium text-white group-hover:text-[#F3D3A8] transition-colors">Aetna</h3>
-                        <span class="text-xs font-mono opacity-40 group-hover:opacity-100 transition-opacity">↗</span>
-                    </div>
-                    <p class="text-xs opacity-50 font-mono mb-3">aetna.com</p>
-                    <p class="text-xs opacity-70 leading-relaxed">Optimizing critical healthcare platforms emphasizing multi-tenant web accessibility parameters.</p>
+                <a href="https://www.aetna.com" target="_blank" rel="noopener noreferrer" class="client-card">
+                    <h3>
+                        Aetna
+                        <span class="external-link">↗</span>
+                    </h3>
+                    <p class="client-url">aetna.com</p>
+                    <p class="client-description">Optimizing critical healthcare platforms emphasizing multi-tenant web accessibility parameters.</p>
                 </a>
 
-                <a href="https://www.axa.com" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white/5 border accent-border rounded-lg transition-all duration-300 hover:bg-white/10">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-medium text-white group-hover:text-[#F3D3A8] transition-colors">AXA</h3>
-                        <span class="text-xs font-mono opacity-40 group-hover:opacity-100 transition-opacity">↗</span>
-                    </div>
-                    <p class="text-xs opacity-50 font-mono mb-3">axa.com</p>
-                    <p class="text-xs opacity-70 leading-relaxed">Architecting secure financial, investment, and insurance UI applications globally.</p>
+                <a href="https://www.axa.com" target="_blank" rel="noopener noreferrer" class="client-card">
+                    <h3>
+                        AXA
+                        <span class="external-link">↗</span>
+                    </h3>
+                    <p class="client-url">axa.com</p>
+                    <p class="client-description">Architecting secure financial, investment, and insurance UI applications globally.</p>
                 </a>
 
-                <!-- BJ'S WHOLESALE ADDITION -->
-                <a href="https://www.bjs.com" target="_blank" rel="noopener noreferrer" class="group block p-6 bg-white/5 border accent-border rounded-lg transition-all duration-300 hover:bg-white/10">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-medium text-white group-hover:text-[#F3D3A8] transition-colors">BJ's Wholesale</h3>
-                        <span class="text-xs font-mono opacity-40 group-hover:opacity-100 transition-opacity">↗</span>
-                    </div>
-                    <p class="text-xs opacity-50 font-mono mb-3">bjs.com</p>
-                    <p class="text-xs opacity-70 leading-relaxed">Scaling high-throughput e-commerce infrastructure and membership-driven interface flows.</p>
+                <a href="https://www.bjs.com" target="_blank" rel="noopener noreferrer" class="client-card">
+                    <h3>
+                        BJ's Wholesale
+                        <span class="external-link">↗</span>
+                    </h3>
+                    <p class="client-url">bjs.com</p>
+                    <p class="client-description">Scaling high-throughput e-commerce infrastructure and membership-driven interface flows.</p>
                 </a>
             </div>
         </section>
 
         <!-- CAREER TIMELINE JOURNEY -->
-        <section id="experience" class="py-16 border-b accent-border">
-            <h2 class="text-xs uppercase tracking-widest accent-text mb-12">Professional Experience Timeline</h2>
+        <section id="experience" class="experience-section">
+            <h2>Professional Experience Timeline</h2>
             
-            <div class="space-y-16">
+            <div class="timeline">
                 <!-- Job Role 1: Cognizant (Senior) -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 border-l-2 border-[#F3D3A8]/30 pl-6 md:pl-0 md:border-l-0">
-                    <div class="md:col-span-3">
-                        <span class="text-sm font-mono opacity-50 block">Aug '25 — Now</span>
-                        <span class="text-xs uppercase tracking-widest accent-text font-semibold">Cognizant</span>
-                        <span class="text-xs opacity-40 block">Bengaluru</span>
+                <div class="timeline-item">
+                    <div>
+                        <span class="timeline-date">Aug '25 — Now</span>
+                        <span class="timeline-company">Cognizant</span>
+                        <span class="timeline-location">Bengaluru</span>
                     </div>
-                    <div class="md:col-span-9">
-                        <h3 class="text-xl font-medium text-white mb-2">Senior Associate Frontend Architecture</h3>
-                        <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Leading frontend architecture inside a large-scale monorepo + microfrontend system. Building scalable Angular 20+ applications with GraphQL, driving bundle optimisation, lazy-loading, and performance metrics across critical paths.
+                    <div>
+                        <h3 class="timeline-role">Senior Associate Frontend Architecture</h3>
+                        <p class="timeline-description">
+                            Leading frontend architecture inside a large-scale monorepo + microfrontend system. Building scalable Angular 20+ applications with GraphQL, driving bundle optimisation, lazy loading and performance audits.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
-                            <span class="text-emerald-400">⚡ 35-40% bundle size reduction (~1MB+ shed)</span>
-                            <span class="text-amber-300">⚙️ ~30% dev effort saved via shared library</span>
-                            <span class="text-blue-400">⏱ 1s CWV faster initial load</span>
+                        <div class="timeline-achievements">
+                            <span class="achievement success">⚡ 35-40% bundle size reduction (~1MB+ shed)</span>
+                            <span class="achievement warning">⚙️ ~30% dev effort saved via shared library</span>
+                            <span class="achievement info">⏱ 1s CWV faster initial load</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Job Role 2: TCS -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 border-l-2 border-white/10 pl-6 md:pl-0 md:border-l-0">
-                    <div class="md:col-span-3">
-                        <span class="text-sm font-mono opacity-50 block">Oct '22 — Aug '25</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60 font-semibold">TCS</span>
-                        <span class="text-xs opacity-40 block">Bengaluru // 2 Yrs 11 Mos</span>
+                <div class="timeline-item past-role">
+                    <div>
+                        <span class="timeline-date">Oct '22 — Aug '25</span>
+                        <span class="timeline-company">TCS</span>
+                        <span class="timeline-location">Bengaluru // 2 Yrs 11 Mos</span>
                     </div>
-                    <div class="md:col-span-9">
-                        <h3 class="text-xl font-medium text-white mb-2">IT Analyst • UI Engineering Lead</h3>
-                        <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Led UI development for enterprise-scale applications in Angular, React and TypeScript. Translated UX into scalable, performant UI systems, integrated CMS (Bloomreach) and owned responsive, accessible interface patterns.
+                    <div>
+                        <h3 class="timeline-role">IT Analyst • UI Engineering Lead</h3>
+                        <p class="timeline-description">
+                            Led UI development for enterprise-scale applications in Angular, React and TypeScript. Translated UX into scalable, performant UI systems, integrated CMS (Bloomreach) and optimized Core Web Vitals.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
-                            <span class="text-emerald-400">⚡ 35% faster page load times</span>
-                            <span class="text-amber-300">📊 Deeper monitoring & alerting metrics</span>
-                            <span class="text-blue-400">✔ Zero-defect production releases</span>
+                        <div class="timeline-achievements">
+                            <span class="achievement success">⚡ 35% faster page load times</span>
+                            <span class="achievement warning">📊 Deeper monitoring & alerting metrics</span>
+                            <span class="achievement info">✔ Zero-defect production releases</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Job Role 3: Cognizant (Associate) -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 border-l-2 border-white/10 pl-6 md:pl-0 md:border-l-0">
-                    <div class="md:col-span-3">
-                        <span class="text-sm font-mono opacity-50 block">Sep '21 — Sep '22</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60 font-semibold">Cognizant</span>
-                        <span class="text-xs opacity-40 block">Bengaluru // 1 Yr 1 Mo</span>
+                <div class="timeline-item past-role">
+                    <div>
+                        <span class="timeline-date">Sep '21 — Sep '22</span>
+                        <span class="timeline-company">Cognizant</span>
+                        <span class="timeline-location">Bengaluru // 1 Yr 1 Mo</span>
                     </div>
-                    <div class="md:col-span-9">
-                        <h3 class="text-xl font-medium text-white mb-2">Associate UI Developer</h3>
-                        <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Built reusable UI components in Angular & SCSS, integrated REST APIs, and actively contributed to an enterprise legacy-to-Angular architectural migration. Successfully drove adoption of component-driven patterns.
+                    <div>
+                        <h3 class="timeline-role">Associate UI Developer</h3>
+                        <p class="timeline-description">
+                            Built reusable UI components in Angular & SCSS, integrated REST APIs, and actively contributed to an enterprise legacy-to-Angular architectural migration. Successfully drove component adoption across teams.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
-                            <span class="text-emerald-400">⚡ 25% code redundancy reduced</span>
-                            <span class="text-amber-300">🔄 Migration: Legacy UI ➔ Angular</span>
+                        <div class="timeline-achievements">
+                            <span class="achievement success">⚡ 25% code redundancy reduced</span>
+                            <span class="achievement warning">🔄 Migration: Legacy UI ➔ Angular</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Job Role 4: Infosys -->
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-4 border-l-2 border-white/10 pl-6 md:pl-0 md:border-l-0">
-                    <div class="md:col-span-3">
-                        <span class="text-sm font-mono opacity-50 block">Feb '17 — Sep '21</span>
-                        <span class="text-xs uppercase tracking-widest opacity-60 font-semibold">Infosys</span>
-                        <span class="text-xs opacity-40 block">Bengaluru // 4 Yrs 8 Mos</span>
+                <div class="timeline-item past-role">
+                    <div>
+                        <span class="timeline-date">Feb '17 — Sep '21</span>
+                        <span class="timeline-company">Infosys</span>
+                        <span class="timeline-location">Bengaluru // 4 Yrs 8 Mos</span>
                     </div>
-                    <div class="md:col-span-9">
-                        <h3 class="text-xl font-medium text-white mb-2">Technology Analyst • Frontend Engineer</h3>
-                        <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Developed responsive, highly accessible web applications using semantic HTML, CSS, and structural JavaScript. Partnered closely with backend engineering teams on seamless API integration and state management.
+                    <div>
+                        <h3 class="timeline-role">Technology Analyst • Frontend Engineer</h3>
+                        <p class="timeline-description">
+                            Developed responsive, highly accessible web applications using semantic HTML, CSS, and structural JavaScript. Partnered closely with backend engineering teams on seamless API integration and data flow optimization.
                         </p>
-                        <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
-                            <span class="text-emerald-400">⚡ 40% improvement in usability scores</span>
-                            <span class="text-amber-300">★ Star Performer - Accessibility Award</span>
+                        <div class="timeline-achievements">
+                            <span class="achievement success">⚡ 40% improvement in usability scores</span>
+                            <span class="achievement warning">★ Star Performer - Accessibility Award</span>
                         </div>
                     </div>
                 </div>
@@ -298,36 +313,30 @@
         </section>
 
         <!-- EDUCATION & FOOTER CONTACT -->
-        <section id="contact" class="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div class="lg:col-span-6 space-y-6">
-                <h2 class="text-xs uppercase tracking-widest accent-text">Academic Framework</h2>
+        <section id="contact" class="footer-section">
+            <div class="education-box">
+                <h2>Academic Framework</h2>
                 <div class="space-y-4">
-                    <div>
-                        <h4 class="text-md text-white font-medium">M.Tech</h4>
-                        <p class="text-xs opacity-50">Bengal Engineering College (BEC), Shibpur (2016)</p>
+                    <div class="education-item">
+                        <h4>M.Tech</h4>
+                        <p>Bengal Engineering College (BEC), Shibpur (2016)</p>
                     </div>
-                    <div>
-                        <h4 class="text-md text-white font-medium">B.Tech/B.E.</h4>
-                        <p class="text-xs opacity-50">Seacom Engineering College (2012)</p>
+                    <div class="education-item">
+                        <h4>B.Tech/B.E.</h4>
+                        <p>Seacom Engineering College (2012)</p>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-6 bg-white/5 border accent-border p-8 rounded-lg space-y-6">
-                <h2 class="text-xs uppercase tracking-widest accent-text">Connect / Transmit Intent</h2>
-                <p class="serif-font text-2xl text-white italic">"Where design intent meets engineering rigor—and the experience just behaves."</p>
-                <div class="pt-4 space-y-2 text-sm">
-                    <p class="opacity-60">Communication Pipeline:</p>
-                    <p class="text-lg text-white font-mono selection:bg-amber-200">
-                        <a href="mailto:s.zaminder@gmail.com" class="hover:text-[#F3D3A8] transition-colors">s.zaminder@gmail.com</a>
-                    </p>
-                    <p class="text-sm text-gray-400 font-mono">
-                        <a href="tel:+918902459912" class="hover:text-[#F3D3A8] transition-colors">
-                            +91-8902459912
-                        </a>
-                    </p>
-                    <div class="flex space-x-6 pt-4 text-xs uppercase tracking-widest font-mono">
-                        <a href="https://linkedin.com/in/souvik-zaminder-929150ba" target="_blank" class="accent-text hover:underline">LinkedIn</a>
+            <div class="contact-box">
+                <h2>Connect / Transmit Intent</h2>
+                <p class="contact-tagline">"Where design intent meets engineering rigor—and the experience just behaves."</p>
+                <div class="contact-info">
+                    <p style="opacity: 0.6;">Communication Pipeline:</p>
+                    <a href="mailto:s.zaminder@gmail.com" class="contact-email">s.zaminder@gmail.com</a>
+                    <a href="tel:+918902459912" class="contact-phone">+91-8902459912</a>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/souvik-zaminder-929150ba" target="_blank">LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -335,140 +344,17 @@
 
     </main>
 
-    <footer class="w-full py-8 text-center text-xs opacity-40 font-mono tracking-widest border-t accent-border mt-12">
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer>
         © 2026 SOUVIK ZAMINDER // ALL RIGHTS RESERVED
     </footer>
 
-    <script>
-        const goTopBtn = document.getElementById('goTopBtn');
-        const chatWidget = document.getElementById('chatWidget');
-        const chatToggleBtn = document.getElementById('chatToggleBtn');
-        const closeChatBtn = document.getElementById('closeChatBtn');
-        const chatInput = document.getElementById('chatInput');
-        const sendBtn = document.getElementById('sendBtn');
-        const chatMessages = document.getElementById('chatMessages');
-        const quickActions = document.getElementById('quickActions');
-
-        // Portfolio Data for Chatbot
-        const portfolioData = {
-            design_systems: "Souvik specializes in building token-driven component libraries with consistent spacing, typography, color and accessibility. His design systems have been adopted across multiple squads to compound velocity and consistency.",
-            performance: "Performance optimization is a core pillar. Souvik has achieved 35-40% bundle size reduction (~1MB+ shed), 35% faster page load times, and consistently moves Core Web Vitals into the green zone.",
-            microfrontends: "Souvik architects independent, domain-aligned UI modules inside large-scale monorepos. These are composable, deployable, and testable in isolation, enabling multiple teams to scale independently.",
-            accessibility: "WCAG 2.1 AA compliance is non-negotiable. Souvik has won a Star Performer Award for Accessibility Excellence, implementing keyboard navigation, semantic markup, and screen-reader-optimized flows.",
-            experience: "Souvik has 9+ years of experience shipping scalable, high-performance web applications at Cognizant, TCS, and Infosys. Currently Senior Associate Frontend Architecture at Cognizant (since Aug 2025).",
-            technologies: "Primary expertise: Angular 20+, React.js, TypeScript, Microfrontends, GraphQL, Design Systems, HTML5, CSS3, Performance Optimization, WCAG 2.1 A11y standards, Monorepos, REST APIs, CSS-in-JS.",
-            contact: "Reach out to Souvik: Email: s.zaminder@gmail.com | Phone: +91-8902459912 | LinkedIn: https://linkedin.com/in/souvik-zaminder-929150ba | Location: Bengaluru, Karnataka, India",
-            clients: "Souvik has worked with major enterprises including Spectrum (telecom interfaces), Aetna (healthcare platforms), AXA (financial & insurance UIs), and BJ's Wholesale (e-commerce infrastructure)."
-        };
-
-        // Chat Response Logic
-        function getChatResponse(userMessage) {
-            const message = userMessage.toLowerCase().trim();
-            
-            if (message.includes('design system') || message.includes('component') || message.includes('library')) {
-                return portfolioData.design_systems;
-            } else if (message.includes('performance') || message.includes('bundle') || message.includes('load time') || message.includes('optimize')) {
-                return portfolioData.performance;
-            } else if (message.includes('microfrontend') || message.includes('mfe')) {
-                return portfolioData.microfrontends;
-            } else if (message.includes('accessibility') || message.includes('a11y') || message.includes('wcag') || message.includes('inclusive')) {
-                return portfolioData.accessibility;
-            } else if (message.includes('experience') || message.includes('career') || message.includes('journey') || message.includes('background')) {
-                return portfolioData.experience;
-            } else if (message.includes('technology') || message.includes('skills') || message.includes('tech stack') || message.includes('angular') || message.includes('react')) {
-                return portfolioData.technologies;
-            } else if (message.includes('contact') || message.includes('email') || message.includes('phone') || message.includes('reach')) {
-                return portfolioData.contact;
-            } else if (message.includes('client') || message.includes('work') || message.includes('past')) {
-                return portfolioData.clients;
-            } else {
-                return "I'm an AI trained on Souvik's portfolio. I can help you learn about: Design Systems, Performance Optimization, Microfrontends, Accessibility, Experience, Technologies, Clients, and Contact information.";
-            }
-        }
-
-        // Add message to chat
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
-            
-            const messageBubble = document.createElement('div');
-            messageBubble.className = `max-w-xs px-4 py-2 rounded-lg text-sm ${
-                isUser 
-                    ? 'bg-[#F3D3A8] text-black font-medium' 
-                    : 'bg-white/10 border accent-border text-white/90'
-            }`;
-            messageBubble.textContent = text;
-            
-            messageDiv.appendChild(messageBubble);
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-
-        // Handle sending message
-        function sendMessage() {
-            const message = chatInput.value.trim();
-            if (!message) return;
-
-            // Add user message
-            addMessage(message, true);
-            chatInput.value = '';
-
-            // Simulate typing delay
-            setTimeout(() => {
-                const response = getChatResponse(message);
-                addMessage(response, false);
-            }, 500);
-        }
-
-        // Chat Toggle
-        chatToggleBtn.addEventListener('click', () => {
-            chatWidget.classList.remove('hidden');
-            chatToggleBtn.classList.add('hidden');
-            chatInput.focus();
-        });
-
-        closeChatBtn.addEventListener('click', () => {
-            chatWidget.classList.add('hidden');
-            chatToggleBtn.classList.remove('hidden');
-        });
-
-        // Send message on button click
-        sendBtn.addEventListener('click', sendMessage);
-
-        // Send message on Enter key
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-
-        // Quick action buttons
-        document.querySelectorAll('#quickActions button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const text = btn.textContent.trim();
-                chatInput.value = text;
-                chatInput.focus();
-            });
-        });
-
-        // Go to Top functionality
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                goTopBtn.classList.add('opacity-100');
-                goTopBtn.classList.remove('pointer-events-none');
-            } else {
-                goTopBtn.classList.remove('opacity-100');
-                goTopBtn.classList.add('pointer-events-none');
-            }
-        });
-
-        goTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    </script>
+    <!-- ============================================
+         EXTERNAL SCRIPTS
+         ============================================ -->
+    <script src="script.js"></script>
 
 </body>
 </html>
