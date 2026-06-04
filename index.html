@@ -25,8 +25,56 @@
     </header>
 
     <!-- Go to Top Button (Mobile) -->
-    <button id="goTopBtn" class="fixed bottom-8 right-6 md:hidden w-12 h-12 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-lg hover:bg-white transition-all duration-300 opacity-0 pointer-events-none">
+    <button id="goTopBtn" class="fixed bottom-8 right-6 md:hidden w-12 h-12 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-lg hover:bg-white transition-all duration-300 pointer-events-none opacity-0">
         ↑
+    </button>
+
+    <!-- Chatbot Widget (Desktop Only) -->
+    <div id="chatWidget" class="hidden md:flex fixed bottom-6 right-6 flex-col z-40 w-96 h-[600px] bg-[#0B0F19] border accent-border rounded-lg shadow-2xl overflow-hidden">
+        <!-- Chat Header -->
+        <div class="bg-gradient-to-r from-[#F3D3A8] to-[#D4A574] px-6 py-4 flex justify-between items-center">
+            <div>
+                <h3 class="text-black font-semibold text-sm">Ask Souvik</h3>
+                <p class="text-xs text-black/70">Architecture & Frontend Expertise</p>
+            </div>
+            <button id="closeChatBtn" class="text-black hover:opacity-70 transition-opacity text-lg font-bold">✕</button>
+        </div>
+
+        <!-- Chat Messages Container -->
+        <div id="chatMessages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-[#0B0F19]/50">
+            <!-- Welcome Message -->
+            <div class="flex justify-start">
+                <div class="bg-white/10 border accent-border rounded-lg px-4 py-2 max-w-xs text-sm opacity-90">
+                    <p>Hi! I'm an AI assistant trained on Souvik's portfolio. Ask me about:</p>
+                    <ul class="text-xs opacity-70 mt-2 space-y-1">
+                        <li>• Frontend Architecture & Design Systems</li>
+                        <li>• Performance Optimization</li>
+                        <li>• Experience & Past Projects</li>
+                        <li>• Technical Skills & Technologies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Action Buttons -->
+        <div id="quickActions" class="px-4 py-3 space-y-2 border-t accent-border bg-white/5">
+            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">💡 Design System Approach</button>
+            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">⚡ Performance Wins</button>
+            <button class="w-full text-left px-3 py-2 text-xs bg-white/5 border accent-border rounded hover:bg-white/10 transition-colors text-white/80">📧 Contact Info</button>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="border-t accent-border p-4 bg-white/5">
+            <div class="flex gap-2">
+                <input id="chatInput" type="text" placeholder="Ask anything..." class="flex-1 bg-white/10 border accent-border rounded px-3 py-2 text-sm text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-[#F3D3A8]/30">
+                <button id="sendBtn" class="bg-[#F3D3A8] text-black px-4 py-2 rounded font-semibold text-xs hover:bg-white transition-all">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chat Toggle Button (Desktop Only) -->
+    <button id="chatToggleBtn" class="hidden md:flex fixed bottom-6 right-6 w-14 h-14 bg-[#F3D3A8] text-black rounded-full flex items-center justify-center font-bold text-xl hover:bg-white transition-all duration-300 shadow-lg z-40">
+        💬
     </button>
 
     <main class="pt-32 px-6 md:px-12 max-w-7xl mx-auto">
@@ -39,7 +87,7 @@
                     Bridging design intent and <span class="italic">engineering rigor</span> through scalable architectures.
                 </h1>
                 <p class="text-lg opacity-70 max-w-2xl font-light leading-relaxed mb-8">
-                    Senior frontend engineer with 9+ years shipping scalable, high-performance web applications at global IT consultancies Cognizant, TCS and Infosys. Specialist in Angular & React ecosystems, design systems, and performance optimization.
+                    Senior frontend engineer with 9+ years shipping scalable, high-performance web applications at global IT consultancies Cognizant, TCS and Infosys. Specialist in Angular & React ecosystem design systems, accessibility standards, and enterprise-scale performance optimization.
                 </p>
                 
                 <!-- Tech Tags -->
@@ -110,7 +158,7 @@
                 <div class="space-y-4">
                     <div class="w-8 h-8 rounded-full border accent-border flex items-center justify-center text-xs accent-text">03</div>
                     <h3 class="text-lg font-medium text-white">Performance First</h3>
-                    <p class="text-sm opacity-60 leading-relaxed">Bundle budgets, code-splitting, lazy routes and image strategy that move Core Web Vitals into the green and shrink time-to-interactive metrics.</p>
+                    <p class="text-sm opacity-60 leading-relaxed">Bundle budgets, code-splitting, lazy routes and image strategy that move Core Web Vitals into the green and shrink time-to-interactive.</p>
                 </div>
                 <!-- Pillar 4 -->
                 <div class="space-y-4">
@@ -179,7 +227,7 @@
                     <div class="md:col-span-9">
                         <h3 class="text-xl font-medium text-white mb-2">Senior Associate Frontend Architecture</h3>
                         <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Leading frontend architecture inside a large-scale monorepo + microfrontend system. Building scalable Angular 20+ applications with GraphQL, driving bundle optimisation, lazy-loading patterns and accessibility standards.
+                            Leading frontend architecture inside a large-scale monorepo + microfrontend system. Building scalable Angular 20+ applications with GraphQL, driving bundle optimisation, lazy loading strategies and comprehensive component library design.
                         </p>
                         <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
                             <span class="text-emerald-400">⚡ 35-40% bundle size reduction (~1MB+ shed)</span>
@@ -199,7 +247,7 @@
                     <div class="md:col-span-9">
                         <h3 class="text-xl font-medium text-white mb-2">IT Analyst • UI Engineering Lead</h3>
                         <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Led UI development for enterprise-scale applications in Angular, React and TypeScript. Translated UX into scalable, performant UI systems, integrated CMS (Bloomreach) and optimized critical rendering paths.
+                            Led UI development for enterprise-scale applications in Angular, React and TypeScript. Translated UX into scalable, performant UI systems, integrated CMS (Bloomreach) and orchestrated multi-squad accessibility audits.
                         </p>
                         <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
                             <span class="text-emerald-400">⚡ 35% faster page load times</span>
@@ -219,7 +267,7 @@
                     <div class="md:col-span-9">
                         <h3 class="text-xl font-medium text-white mb-2">Associate UI Developer</h3>
                         <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Built reusable UI components in Angular & SCSS, integrated REST APIs, and actively contributed to an enterprise legacy-to-Angular architectural migration. Successfully drove component library adoption.
+                            Built reusable UI components in Angular & SCSS, integrated REST APIs, and actively contributed to an enterprise legacy-to-Angular architectural migration. Successfully drove 25% code redundancy reduction.
                         </p>
                         <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
                             <span class="text-emerald-400">⚡ 25% code redundancy reduced</span>
@@ -238,7 +286,7 @@
                     <div class="md:col-span-9">
                         <h3 class="text-xl font-medium text-white mb-2">Technology Analyst • Frontend Engineer</h3>
                         <p class="text-sm opacity-70 mb-4 leading-relaxed">
-                            Developed responsive, highly accessible web applications using semantic HTML, CSS, and structural JavaScript. Partnered closely with backend engineering teams on seamless API integrations and accessibility.
+                            Developed responsive, highly accessible web applications using semantic HTML, CSS, and structural JavaScript. Partnered closely with backend engineering teams on seamless API integration and cross-functional optimization.
                         </p>
                         <div class="flex flex-wrap gap-4 text-xs font-mono opacity-80">
                             <span class="text-emerald-400">⚡ 40% improvement in usability scores</span>
@@ -293,8 +341,117 @@
 
     <script>
         const goTopBtn = document.getElementById('goTopBtn');
+        const chatWidget = document.getElementById('chatWidget');
+        const chatToggleBtn = document.getElementById('chatToggleBtn');
+        const closeChatBtn = document.getElementById('closeChatBtn');
+        const chatInput = document.getElementById('chatInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const chatMessages = document.getElementById('chatMessages');
+        const quickActions = document.getElementById('quickActions');
 
-        // Show/hide button based on scroll position
+        // Portfolio Data for Chatbot
+        const portfolioData = {
+            design_systems: "Souvik specializes in building token-driven component libraries with consistent spacing, typography, color and accessibility. His design systems have been adopted across multiple squads, compounding velocity and reducing code redundancy by 25%.",
+            performance: "Performance optimization is a core pillar. Souvik has achieved 35-40% bundle size reduction (~1MB+ shed), 35% faster page load times, and consistently moves Core Web Vitals into the green through bundle budgets, code-splitting, lazy routes, and optimized image strategies.",
+            microfrontends: "Souvik architects independent, domain-aligned UI modules inside large-scale monorepos. These are composable, deployable, and testable in isolation, enabling multiple teams to work independently while maintaining consistency.",
+            accessibility: "WCAG 2.1 AA compliance is non-negotiable. Souvik has won a Star Performer Award for Accessibility Excellence, implementing keyboard navigation, semantic markup, and screen-reader-grade flows across enterprise applications.",
+            experience: "Souvik has 9+ years of experience shipping scalable, high-performance web applications at Cognizant, TCS, and Infosys. Currently Senior Associate Frontend Architecture at Cognizant, leading frontend architecture in large-scale monorepo + microfrontend systems.",
+            technologies: "Primary expertise: Angular 20+, React.js, TypeScript, Microfrontends, GraphQL, Design Systems, HTML5, CSS3, Performance Optimization, WCAG 2.1 A11y standards, Monorepos, REST APIs, CI/CD pipelines.",
+            contact: "Reach out to Souvik: Email: s.zaminder@gmail.com | Phone: +91-8902459912 | LinkedIn: https://linkedin.com/in/souvik-zaminder-929150ba | Location: Bengaluru, Karnataka, India",
+            clients: "Souvik has worked with major enterprises including Spectrum (telecom interfaces), Aetna (healthcare platforms), AXA (financial & insurance UIs), and BJ's Wholesale (e-commerce infrastructure)."
+        };
+
+        // Chat Response Logic
+        function getChatResponse(userMessage) {
+            const message = userMessage.toLowerCase().trim();
+            
+            if (message.includes('design system') || message.includes('component') || message.includes('library')) {
+                return portfolioData.design_systems;
+            } else if (message.includes('performance') || message.includes('bundle') || message.includes('load time') || message.includes('optimize')) {
+                return portfolioData.performance;
+            } else if (message.includes('microfrontend') || message.includes('mfe')) {
+                return portfolioData.microfrontends;
+            } else if (message.includes('accessibility') || message.includes('a11y') || message.includes('wcag') || message.includes('inclusive')) {
+                return portfolioData.accessibility;
+            } else if (message.includes('experience') || message.includes('career') || message.includes('journey') || message.includes('background')) {
+                return portfolioData.experience;
+            } else if (message.includes('technology') || message.includes('skills') || message.includes('tech stack') || message.includes('angular') || message.includes('react')) {
+                return portfolioData.technologies;
+            } else if (message.includes('contact') || message.includes('email') || message.includes('phone') || message.includes('reach')) {
+                return portfolioData.contact;
+            } else if (message.includes('client') || message.includes('work') || message.includes('past')) {
+                return portfolioData.clients;
+            } else {
+                return "I'm an AI trained on Souvik's portfolio. I can help you learn about: Design Systems, Performance Optimization, Microfrontends, Accessibility, Experience, Technologies, Clients, or Contact Info. What would you like to know?";
+            }
+        }
+
+        // Add message to chat
+        function addMessage(text, isUser) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+            
+            const messageBubble = document.createElement('div');
+            messageBubble.className = `max-w-xs px-4 py-2 rounded-lg text-sm ${
+                isUser 
+                    ? 'bg-[#F3D3A8] text-black font-medium' 
+                    : 'bg-white/10 border accent-border text-white/90'
+            }`;
+            messageBubble.textContent = text;
+            
+            messageDiv.appendChild(messageBubble);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Handle sending message
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, true);
+            chatInput.value = '';
+
+            // Simulate typing delay
+            setTimeout(() => {
+                const response = getChatResponse(message);
+                addMessage(response, false);
+            }, 500);
+        }
+
+        // Chat Toggle
+        chatToggleBtn.addEventListener('click', () => {
+            chatWidget.classList.remove('hidden');
+            chatToggleBtn.classList.add('hidden');
+            chatInput.focus();
+        });
+
+        closeChatBtn.addEventListener('click', () => {
+            chatWidget.classList.add('hidden');
+            chatToggleBtn.classList.remove('hidden');
+        });
+
+        // Send message on button click
+        sendBtn.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Quick action buttons
+        document.querySelectorAll('#quickActions button').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const text = btn.textContent.trim();
+                chatInput.value = text;
+                chatInput.focus();
+            });
+        });
+
+        // Go to Top functionality
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
                 goTopBtn.classList.add('opacity-100');
@@ -305,7 +462,6 @@
             }
         });
 
-        // Smooth scroll to top when clicked
         goTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
