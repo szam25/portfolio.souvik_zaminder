@@ -81,7 +81,7 @@ function initDesktopChatbotWidget() {
                     break;
                 }
             }
-            appendChatBubble(reply, "bot-msg");
+            appendChatBubble(reply, "bot-msg"); 
         }, 400);
     }
 
@@ -99,15 +99,5 @@ function initDesktopChatbotWidget() {
     }
 }
 
-/**
- * Handle Mock Actionable Event Triggers for Download CV Requirement
- */
-function initDownloadCVAction() {
-    const downloadBtn = document.getElementById("downloadCV");
-    if (!downloadBtn) return;
 
-    downloadBtn.addEventListener("click", (event) => {
-        event.preventDefault();
-        alert("Initializing structural printable generation schema target for Souvik Zaminder's CV. Document matching 2026 validation will download momentarily.");
-    });
-}
+
