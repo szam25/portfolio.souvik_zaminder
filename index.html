@@ -3,232 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Souvik Zaminder | UI/UX Design Engineer & Assoc. Architect</title>
+    <title>Souvik Zaminder | UI UX Design Engineering Portfolio</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts for Editorial Aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">SZ </div>
-            <nav>
+    <!-- Global Header/Navigation -->
+    <header class="site-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="initials">SZ</span>
+                <span class="year">MMXXVI</span>
+            </div>
+            <nav class="main-nav">
                 <a href="#profile">Profile</a>
-                <a href="#skills">Skills</a>
-                <a href="#journey">Carrer Journey</a>
-                <a href="#journey">Educational Journey</a>
-                <a href="#contact" class="btn-contact">Contact</a>
+                <a href="#skills">Skills & Architecture</a>
+                <a href="#work">Work Examples</a>
+                <a href="#journey">Experience</a>
+                <a href="#education">Education</a>
             </nav>
+            <div class="cta-header">
+                <a href="https://linkedin.com/in/souvik-zaminder-929150ba" target="_blank" class="btn btn-secondary">LinkedIn Profile</a>
+            </div>
         </div>
     </header>
 
-    <section id="profile" class="hero-section">
+    <main>
+        <!-- Hero Section & High Impact Analytics Grid -->
+        <section class="hero-section" id="profile">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-text-block">
+                        <span class="badge">Assoc. Architect & Sr. Engineer</span>
+                        <h1 class="hero-title">Souvik Zaminder</h1>
+                        <p class="hero-subtitle">Bridging design and engineering through scalable component systems, microfrontend architectures, and accessible UI at enterprise scale.</p>
+                        <div class="contact-meta">
+                            <span>Email: s.zaminder@gmail.com</span>
+                            <span>Location: Bengaluru, India</span>
+                        </div>
+                        <div class="hero-actions">
+                            <a href="#work" class="btn btn-primary">View Production Work</a>
+                            <a href="#" class="btn btn-outline" id="downloadCV">Download CV (PDF)</a>
+                        </div>
+                    </div>
+                    <div class="hero-signature-block">
+                        <blockquote>
+                            "Where design intent meets engineering rigor — and the experience just behaves."
+                        </blockquote>
+                    </div>
+                </div>
+
+                <!-- CV Metric Highlight Counter Layout Blocks -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-num">9+</div>
+                        <div class="metric-label">Years Building For The Web</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-num">4</div>
+                        <div class="metric-label">Tier-1 Global Employers</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-num">35%</div>
+                        <div class="metric-label">Avg Load-Time Improvement</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-num">1MB+</div>
+                        <div class="metric-label">Bundle Size Reduced</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Narrative & Signature Wins -->
+        <section class="profile-narrative-section">
+            <div class="container">
+                <hr class="section-divider">
+                <div class="two-col-layout">
+                    <div class="col-left">
+                        <h2 class="section-tag">01 / Profile Narrative</h2>
+                    </div>
+                    <div class="col-right">
+                        <p class="lead-text">Senior frontend engineer with 9+ years shipping scalable, high-performance web applications at global IT consultancies Cognizant, TCS, and Infosys. Specialist in Angular & React ecosystems with deep expertise in microfrontend architecture, monorepos, and design systems that serve product teams at enterprise scale.</p>
+                        <p class="body-text">Known for translating UX intent into modular, accessible UI systems and for measurable engineering wins: 35-40% bundle reductions, faster Core Web Vitals, zero-defect releases, and reusable libraries that have cut downstream development effort across squads. Cloud-aware (AWS Certified Cloud Practitioner) with a growing focus on frontend system design and observability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Architecture Skills & Pillars Section -->
+        <section class="skills-section" id="skills">
+            <div class="container">
+                <hr class="section-divider">
+                <div class="two-col-layout">
+                    <div class="col-left">
+                        <h2 class="section-tag">02 / Skills & Architecture</h2>
+                        <div class="tech-pills-container">
+                            <span class="pill">Angular 20+</span>
+                            <span class="pill">React.js</span>
+                            <span class="pill">TypeScript</span>
+                            <span class="pill">Microfrontends</span>
+                            <span class="pill">Design Systems</span>
+                            <span class="pill">Accessibility</span>
+                            <span class="pill">GraphQL</span>
+                        </div>
+                    </div>
+                    <div class="col-right">
+                        <h3 class="subsection-title">Design-System Architecture Pillars</h3>
+                        <div class="pillars-grid">
+                            <div class="pillar-item">
+                                <h4>Design Systems</h4>
+                                <p>Token-driven component libraries with consistent spacing, typography, color, and a11y baked in — adopted across squads to compound velocity.</p>
+                            </div>
+                            <div class="pillar-item">
+                                <h4>Microfrontend Mindset</h4>
+                                <p>Independent, domain-aligned UI modules inside large-scale monorepos — composable, deployable, testable in isolation.</p>
+                            </div>
+                            <div class="pillar-item">
+                                <h4>Performance First</h4>
+                                <p>Bundle budgets, code-splitting, lazy routes, and image strategy that move Core Web Vitals into the green and shrink time-to-interactive.</p>
+                            </div>
+                            <div class="pillar-item">
+                                <h4>Inclusive UX</h4>
+                                <p>WCAG 2.1 AA interactions, keyboard navigation, semantic markup, and screen-reader-grade flows — usability and inclusion as a baseline.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Examples Section -->
+        <section class="work-section" id="work">
+            <div class="container">
+                <hr class="section-divider">
+                <h2 class="section-tag">03 / Production Client Work Examples</h2>
+                <div class="work-grid">
+                    <a href="https://www.spectrum.com" target="_blank" class="work-card">
+                        <div class="card-content">
+                            <h3>Spectrum</h3>
+                            <p>Enterprise UI/UX platform solutions, responsive modern frameworks, and design component alignment.</p>
+                            <span class="card-link">Visit Website &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.bjs.com" target="_blank" class="work-card">
+                        <div class="card-content">
+                            <h3>BJ’s Wholesale</h3>
+                            <p>E-commerce scale UI application systems optimization, performance budgets, and core platform enhancements.</p>
+                            <span class="card-link">Visit Website &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.aetna.com" target="_blank" class="work-card">
+                        <div class="card-content">
+                            <h3>Aetna</h3>
+                            <p>Accessible health insurance platform architectures adhering strictly to WCAG compliance and semantic integrity.</p>
+                            <span class="card-link">Visit Website &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.axa.com" target="_blank" class="work-card">
+                        <div class="card-content">
+                            <h3>AXA</h3>
+                            <p>Global financial system UI components rendering modern layout capabilities with secure localized frontend patterns.</p>
+                            <span class="card-link">Visit Website &rarr;</span>
+                        </div>
+                    </a>
+                    <a href="https://www.spglobal.com/en" target="_blank" class="work-card">
+                        <div class="card-content">
+                            <h3>S&P Global</h3>
+                            <p>High-density data platform visualization frameworks requiring microfrontend isolation and premium load strategies.</p>
+                            <span class="card-link">Visit Website &rarr;</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Journey Timeline -->
+        <section class="journey-section" id="journey">
+            <div class="container">
+                <hr class="section-divider">
+                <h2 class="section-tag">04 / Career Journey</h2>
+                <div class="timeline">
+                    <!-- Job 1 -->
+                    <div class="timeline-item">
+                        <div class="time-meta">
+                            <span class="date">Aug '25 — Present</span>
+                            <span class="duration">Current</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>Senior Associate Frontend Architecture</h3>
+                            <span class="company">Cognizant, Bengaluru</span>
+                            <p>Leading frontend architecture inside a large-scale monorepo + microfrontend system. Building scalable Angular 20+ applications with GraphQL, driving bundle optimization, lazy-loading strategy, and reusable UI primitives consumed by multiple product teams. Anchor for accessibility, responsiveness, and code-quality standards across the platform.</p>
+                            <div class="item-wins">
+                                <span>⚡ 35-40% bundle size reduction (~1MB+ shed)</span>
+                                <span>⚡ ~30% dev effort saved via shared library</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 2 -->
+                    <div class="timeline-item">
+                        <div class="time-meta">
+                            <span class="date">Oct '22 — Aug '25</span>
+                            <span class="duration">2 Yrs 11 Mos</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>IT Analyst — UI Engineering Lead</h3>
+                            <span class="company">Tata Consultancy Services (TCS), Bengaluru</span>
+                            <p>Led UI development for enterprise-scale applications in Angular, React, and TypeScript. Translated UX into scalable, performant UI systems, integrated CMS (Bloomreach) and observability (New Relic), and mentored junior engineers on frontend architecture, testing, and review hygiene.</p>
+                            <div class="item-wins">
+                                <span>⚡ 35% faster page load times</span>
+                                <span>⚡ Zero-defect production releases</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Job 3 -->
+                    <div class="timeline-item">
+                        <div class="time-meta">
+                            <span class="date">Sep '21 — Sep '22</span>
+                            <span class="duration">1 Yr 1 Mo</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>Associate UI Developer</h3>
+                            <span class="company">Cognizant, Bengaluru</span>
+                            <p>Built reusable UI components in Angular & SCSS, integrated REST APIs, and contributed to a legacy-to-Angular migration. Drove cross-application UI consistency and code reuse.</p>
+                        </div>
+                    </div>
+
+                    <!-- Job 4 -->
+                    <div class="timeline-item">
+                        <div class="time-meta">
+                            <span class="date">Feb '17 — Sep '21</span>
+                            <span class="duration">4 Yrs 8 Mos</span>
+                        </div>
+                        <div class="timeline-body">
+                            <h3>Technology Analyst — Frontend Engineer</h3>
+                            <span class="company">Infosys, Bengaluru</span>
+                            <p>Developed responsive, accessible web applications using HTML, CSS, and JavaScript. Partnered with backend teams on seamless integration. Recognized internally for impact on usability and accessibility outcomes.</p>
+                            <div class="item-wins">
+                                <span>★ Star Performer Award - Accessibility Excellence</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education History Section -->
+        <section class="education-section" id="education">
+            <div class="container">
+                <hr class="section-divider">
+                <h2 class="section-tag">05 / Educational Background</h2>
+                <div class="education-table-wrapper">
+                    <table class="education-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Degree / Qualification</th>
+                                <th>Institution / Board</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="year-cell">2016</td>
+                                <td><strong>M.Tech</strong></td>
+                                <td>Bengal Engineering College (BEC), Shibpur</td>
+                            </tr>
+                            <tr>
+                                <td class="year-cell">2012</td>
+                                <td><strong>B.Tech / B.E.</strong></td>
+                                <td>Seacom Engineering College</td>
+                            </tr>
+                            <tr>
+                                <td class="year-cell">2008</td>
+                                <td>Class XII</td>
+                                <td>West Bengal Board - Bengali Medium</td>
+                            </tr>
+                            <tr>
+                                <td class="year-cell">2006</td>
+                                <td>Class X</td>
+                                <td>West Bengal Board - Bengali Medium</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Contextual Widgets Footer Layer -->
+    <footer class="site-footer">
         <div class="container">
-            <p class="subtitle">ASSOC. ARCHITECT & SR. ENGINEER</p>
-            <h1>Souvik Zaminder</h1>
-            <p class="tagline">Bridging design and engineering through scalable component systems, microfrontend architectures, and accessible UI at enterprise scale.</p>
-            
-            <div class="tech-tags">
-                <span class="tag dark">Angular 20+</span>
-                <span class="tag">React.js</span>
-                <span class="tag accent">Design Systems</span>
-                <span class="tag">Microfrontends</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag accent">Accessibility</span>
-                <span class="tag">GraphQL</span>
-            </div>
-
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <h2>9<sup>+</sup></h2>
-                    <p>Years Building For The Web</p>
-                </div>
-                <div class="stat-card">
-                    <h2>4</h2>
-                    <p>Tier-1 Global Employers</p>
-                </div>
-                <div class="stat-card">
-                    <h2>35%</h2>
-                    <p>Avg. Load-Time Improvement</p>
-                </div>
-                <div class="stat-card">
-                    <h2>1<span class="unit">MB+</span></h2>
-                    <p>Bundle Size Reduced</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="wins-section">
-        <div class="container">
-            <h3 class="section-title">Signature Wins</h3>
-            <div class="wins-grid">
-                <div class="win-card">
-                    <i class="fa-solid fa-star win-icon"></i>
-                    <h4>Star Performer Award</h4>
-                    <p>Accessibility excellence at Infosys</p>
-                </div>
-                <div class="win-card">
-                    <i class="fa-solid fa-compress win-icon"></i>
-                    <h4>35-40% Bundle Reduction</h4>
-                    <p>-1MB+ shed Core Web Vitals lift at Cognizant</p>
-                </div>
-                <div class="win-card">
-                    <i class="fa-solid fa-shield-halved win-icon"></i>
-                    <h4>Zero-Defect Releases</h4>
-                    <p>Enterprise-scale UI deliveries at TCS</p>
-                    
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills" class="skills-section">
-        <div class="container">
-            <h3 class="section-title">Architecture Pillars & Core Craft</h3>
-            <div class="pillars-grid">
-                <div class="pillar-card">
-                    <i class="fa-solid fa-cubes"></i>
-                    <h5>Design Systems</h5>
-                    <p>Token-driven component libraries with consistent spacing, typography, color, and a11y baked in.</p>
-                </div>
-                <div class="pillar-card">
-                    <i class="fa-solid fa-network-wired"></i>
-                    <h5>Microfrontend Mindset</h5>
-                    <p>Independent, domain-aligned UI modules inside large-scale monorepos, testable in isolation.</p>
-                </div>
-                <div class="pillar-card">
-                    <i class="fa-solid fa-gauge-high"></i>
-                    <h5>Performance First</h5>
-                    <p>Bundle budgets, code-splitting, and lazy routes that move Core Web Vitals into the green.</p>
-                </div>
-                <div class="pillar-card">
-                    <i class="fa-solid fa-universal-access"></i>
-                    <h5>Inclusive UX</h5>
-                    <p>WCAG 2.1 AA interactions, keyboard navigation, and screen-reader-grade semantic flows.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="journey" class="journey-section">
-        <div class="container">
-            <h3 class="section-title">Career Journey</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Aug '25 - Present</div>
-                    <div class="timeline-content">
-                        <h4>Senior Associate – Frontend Architecture</h4>
-                        <h5>Cognizant, Bengaluru</h5>
-                        <p>Leading frontend architecture inside a large-scale monorepo + microfrontend system. Driving bundle optimization, lazy-loading strategy, and reusable UI primitives.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct '22 - Aug '25</div>
-                    <div class="timeline-content">
-                        <h4>UI Engineering Lead (IT Analyst)</h4>
-                        <h5>Tata Consultancy Services (TCS), Bengaluru</h5>
-                        <p>Led UI development for enterprise applications. Integrated CMS (Bloomreach) and observability (New Relic). Achieved 35% faster page loads with zero-defect releases.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Sep '21 - Sep '22</div>
-                    <div class="timeline-content">
-                        <h4>Associate UI Developer</h4>
-                        <h5>Cognizant, Bengaluru</h5>
-                        <p>Built reusable components in Angular & SCSS, driving 25% code redundancy reduction during a legacy-to-Angular migration.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb '17 - Sep '21</div>
-                    <div class="timeline-content">
-                        <h4>Technology Analyst – Frontend Engineer</h4>
-                        <h5>Infosys, Bengaluru</h5>
-                        <p>Developed responsive, accessible web apps. Awarded Star Performer for accessibility and boosting usability scores by 40%.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Education Journey Section -->
-    <section id="education" class="education-section">
-        <div class="container">
-            <h3 class="section-title">Education Journey</h3>
-            <div class="education-grid">
-                
-                <!-- Postgraduate Degree -->
-                <div class="education-card">
-                    <div class="edu-badge">2016</div>
-                    <div class="edu-details">
-                        <h4>M.Tech</h4>
-                        <h5>Bengal Engineering College (BEC), Shibpur</h5>
-                        <p class="edu-meta">Postgraduate Degree</p>
-                    </div>
-                </div>
-
-                <!-- Undergraduate Degree -->
-                <div class="education-card">
-                    <div class="edu-badge">2012</div>
-                    <div class="edu-details">
-                        <h4>B.Tech / B.E.</h4>
-                        <h5>Seacom Engineering College</h5>
-                        <p class="edu-meta">Undergraduate Degree</p>
-                    </div>
-                </div>
-
-                <!-- Higher Secondary -->
-                <div class="education-card">
-                    <div class="edu-badge">2008</div>
-                    <div class="edu-details">
-                        <h4>Class XII (Higher Secondary)</h4>
-                        <h5>West Bengal Board</h5>
-                        <p class="edu-meta">Bengali Medium</p>
-                    </div>
-                </div>
-
-                <!-- Secondary School -->
-                <div class="education-card">
-                    <div class="edu-badge">2006</div>
-                    <div class="edu-details">
-                        <h4>Class X (Secondary)</h4>
-                        <h5>West Bengal Board</h5>
-                        <p class="edu-meta">Bengali Medium</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <blockquote>"Where design intent meets engineering rigor — and the experience just behaves."</blockquote>
-            <div class="footer-contacts">
-                <a href="mailto:s.zaminder@gmail.com"><i class="fa-solid fa-envelope"></i> s.zaminder@gmail.com</a>
-                <a href="tel:+918902459912"><i class="fa-solid fa-phone"></i> +91 89024 59912</a>
-                <a href="https://linkedin.com/in/souvik-zaminder-929150ba" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-            </div>
-            <p class="location"><i class="fa-solid fa-location-dot"></i> Bengaluru, Karnataka, India</p>
+            <p>&copy; 2026 Souvik Zaminder. All rights reserved. Managed in Bengaluru, India.</p>
         </div>
     </footer>
 
-    <button id="goToTopBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <!-- MOBILE-ONLY WIDGET: Go To Top Button (Controlled via CSS/JS Media Context) -->
+    <button id="mobileGoToTop" class="mobile-only-widget" aria-label="Scroll back to top">↑ Top</button>
 
-    <div id="chatbotWidget" class="chatbot-container">
+    <!-- DESKTOP-ONLY WIDGET: Minimalist Interactive Architecture Chatbot Widget Context -->
+    <div id="desktopChatbotWidget" class="desktop-only-widget">
         <div class="chatbot-header">
-            <span><i class="fa-solid fa-robot"></i> SZ Architecture Assistant</span>
-            <button id="closeChat">&times;</button>
+            <h4>Architecture Assistant</h4>
+            <button id="closeChatbot">&times;</button>
         </div>
-        <div class="chatbot-messages" id="chatMessages">
-            <div class="msg bot">Hi! I'm Souvik's virtual assistant. Ask me about his experience with Angular, Design Systems, or Microfrontends!</div>
+        <div class="chatbot-body" id="chatbotLogs">
+            <p class="bot-msg">Hi! Ask me about Souvik's 9+ years of design engineering architecture experience.</p>
         </div>
-        <div class="chatbot-input">
-            <input type="text" id="chatInput" placeholder="Type a question...">
-            <button id="sendChat"><i class="fa-solid fa-paper-plane"></i></button>
+        <div class="chatbot-footer">
+            <input type="text" id="chatbotInput" placeholder="Ask about core web vitals, a11y...">
+            <button id="sendChatbotBtn">Send</button>
         </div>
     </div>
-    <button id="openChatBtn" class="chatbot-toggle-btn"><i class="fa-solid fa-comment-dots"></i></button>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
