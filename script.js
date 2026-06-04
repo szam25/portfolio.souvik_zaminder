@@ -1,143 +1,89 @@
-// Souvik Zaminder - Portfolio Functional Controllers
-document.addEventListener('DOMContentLoaded', () => {
-  initializeNavigation();
-  initializeChatWidget();
-  initializeGoTopButton();
-});
+// Data extracted from Souvik's CV for targeted bot interactions
+const CV_KNOWLEDGE_BASE = {
+    frameworks: "Souvik is an expert in Angular (working with versions from v8 up to the latest Angular 20+) and robust React.js architectures.",
+    microfrontends: "He specializes in Microfrontend Architecture and enterprise monorepos, allowing large-scale software systems to be delivered cleanly in isolation.",
+    performance: "Souvik cut downstream production build spaces down dramatically, boasting over 35-40% bundle size reductions (saving 1MB+ from core payloads) to improve Core Web Vitals.",
+    experience: "He has over 9+ years of design engineering experience across 4 global Tier-1 companies: Cognizant, TCS, and Infosys.",
+    education: "Souvik holds an M.Tech from Bengal Engineering College (BEC), Shibpur, graduating in 2016."
+};
 
-// 1. Core Smooth Navigation & Mobile Routing
-function initializeNavigation() {
-  // Select all links in your actual header navigation
-  const navLinks = document.querySelectorAll('header nav a, header > a');
+document.addEventListener("DOMContentLoaded", () => {
+    const isMobile = window.innerWidth <= 768;
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href');
-      
-      // Ensure it's a valid internal anchor link
-      if (targetId.startsWith('#')) {
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-          e.preventDefault();
-          // Calculate an offset for your fixed header navbar
-          const headerOffset = 90;
-          const elementPosition = targetElement.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.scrollY - headerOffset;
+    if (isMobile) {
+        // --- MOBILE FUNCTIONALITY: Go to Top Engine ---
+        const topBtn = document.getElementById("goToTopBtn");
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
-  });
-}
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                topBtn.style.display = "block";
+            } else {
+                topBtn.style.display = "none";
+            }
+        };
 
-// 2. Chatbot Widget Functionality (Interactive AI Assistant Demo)
-function initializeChatWidget() {
-  const chatWidget = document.getElementById('chatWidget');
-  const chatToggleBtn = document.getElementById('chatToggleBtn');
-  const closeChatBtn = document.getElementById('closeChatBtn');
-  const chatInput = document.getElementById('chatInput');
-  const sendBtn = document.getElementById('sendBtn');
-  const chatMessages = document.getElementById('chatMessages');
-  const quickActions = document.querySelectorAll('.quick-action-btn');
+        topBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-  if (!chatWidget || !chatToggleBtn || !closeChatBtn) return;
-
-  // Open Chat UI
-  chatToggleBtn.addEventListener('click', () => {
-    chatWidget.classList.remove('hidden');
-    chatToggleBtn.classList.add('hidden');
-  });
-
-  // Close Chat UI
-  closeChatBtn.addEventListener('click', () => {
-    chatWidget.classList.add('hidden');
-    chatToggleBtn.classList.remove('hidden');
-  });
-
-  // Render text message bubbles
-  function appendMessage(text, sender) {
-    const bubbleWrapper = document.createElement('div');
-    bubbleWrapper.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'}`;
-
-    bubbleWrapper.innerHTML = `
-      <div class="p-3 rounded-lg max-w-[85%] text-sm ${
-        sender === 'user' 
-        ? 'bg-[#F3D3A8] text-black rounded-tr-none' 
-        : 'bg-white/10 text-white rounded-tl-none border border-white/5'
-      }">
-        <p>${text}</p>
-      </div>
-    `;
-    chatMessages.appendChild(bubbleWrapper);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Keep view on lowest message
-  }
-
-  // Simplified Bot response logic engine
-  function processBotResponse(promptText) {
-    setTimeout(() => {
-      let response = "That is a great question! Souvik specializes in scalable frontend frameworks, architecture design, and UI performance optimizations.";
-      const textLower = promptText.toLowerCase();
-
-      if (textLower.includes('design') || textLower.includes('system')) {
-        response = "Souvik designs enterprise-level, token-driven component libraries using atomic patterns with WCAG 2.1 AA accessibility guidelines baked in directly by default.";
-      } else if (textLower.includes('performance') || textLower.includes('speed') || textLower.includes('win')) {
-        response = "He has driven optimization sprints slashing production code bundles by 35-40% (~1MB+ absolute weight reduction) resulting in much faster Core Web Vitals times.";
-      } else if (textLower.includes('contact') || textLower.includes('email') || textLower.includes('phone')) {
-        response = "You can securely connect with Souvik over email via s.zaminder@gmail.com, or over telephone at +91-8902459912.";
-      }
-
-      appendMessage(response, 'bot');
-    }, 550);
-  }
-
-  // Submit via click or enter triggers
-  if (sendBtn && chatInput) {
-    sendBtn.addEventListener('click', () => {
-      const inputVal = chatInput.value.trim();
-      if (inputVal) {
-        appendMessage(inputVal, 'user');
-        chatInput.value = '';
-        processBotResponse(inputVal);
-      }
-    });
-
-    chatInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter') sendBtn.click();
-    });
-  }
-
-  // Monitor quick response selection action items
-  quickActions.forEach(actionBtn => {
-    actionBtn.addEventListener('click', () => {
-      const standardText = actionBtn.innerText.trim();
-      appendMessage(standardText, 'user');
-      processBotResponse(standardText);
-    });
-  });
-}
-
-// 3. Back to Top Smooth Scroll Visibility Controller
-function initializeGoTopButton() {
-  const goTopBtn = document.getElementById('goTopBtn');
-  if (!goTopBtn) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
-      // Cleanly clear Tailwind's invisible click safety locks
-      goTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-      goTopBtn.classList.add('opacity-100', 'pointer-events-auto');
     } else {
-      goTopBtn.classList.remove('opacity-100', 'pointer-events-auto');
-      goTopBtn.classList.add('opacity-0', 'pointer-events-none');
-    }
-  });
+        // --- DESKTOP FUNCTIONALITY: Interactive Chatbot Engine ---
+        const openChatBtn = document.getElementById("openChatBtn");
+        const closeChatBtn = document.getElementById("closeChat");
+        const chatbotWidget = document.getElementById("chatbotWidget");
+        const chatInput = document.getElementById("chatInput");
+        const sendChatBtn = document.getElementById("sendChat");
+        const chatMessages = document.getElementById("chatMessages");
 
-  goTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
+        openChatBtn.addEventListener("click", () => {
+            chatbotWidget.style.display = "flex";
+            openChatBtn.style.display = "none";
+        });
+
+        closeChatBtn.addEventListener("click", () => {
+            chatbotWidget.style.display = "none";
+            openChatBtn.style.display = "block";
+        });
+
+        const handleIncomingUserMessage = () => {
+            const query = chatInput.value.trim().toLowerCase();
+            if (!query) return;
+
+            // Render User Text
+            appendMessage(chatInput.value, "user");
+            chatInput.value = "";
+
+            // Evaluate simple intent matches matching your CV profile
+            setTimeout(() => {
+                let reply = "That sounds interesting! Feel free to drop an email to s.zaminder@gmail.com to ask Souvik about that specific architectural scope directly.";
+                
+                if (query.includes("angular") || query.includes("react") || query.includes("framework")) {
+                    reply = CV_KNOWLEDGE_BASE.frameworks;
+                } else if (query.includes("microfrontend") || query.includes("monorepo")) {
+                    reply = CV_KNOWLEDGE_BASE.microfrontends;
+                } else if (query.includes("performance") || query.includes("vitals") || query.includes("bundle")) {
+                    reply = CV_KNOWLEDGE_BASE.performance;
+                } else if (query.includes("experience") || query.includes("work") || query.includes("years")) {
+                    reply = CV_KNOWLEDGE_BASE.experience;
+                } else if (query.includes("education") || query.includes("college") || query.includes("m.tech")) {
+                    reply = CV_KNOWLEDGE_BASE.education;
+                }
+                
+                appendMessage(reply, "bot");
+            }, 600);
+        };
+
+        sendChatBtn.addEventListener("click", handleIncomingUserMessage);
+        chatInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") handleIncomingUserMessage();
+        });
+
+        function appendMessage(text, sender) {
+            const msgBubble = document.createElement("div");
+            msgBubble.classList.add("msg", sender);
+            msgBubble.innerText = text;
+            chatMessages.appendChild(msgBubble);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    }
+});
