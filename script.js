@@ -1,89 +1,113 @@
-// Data extracted from Souvik's CV for targeted bot interactions
-const CV_KNOWLEDGE_BASE = {
-    frameworks: "Souvik is an expert in Angular (working with versions from v8 up to the latest Angular 20+) and robust React.js architectures.",
-    microfrontends: "He specializes in Microfrontend Architecture and enterprise monorepos, allowing large-scale software systems to be delivered cleanly in isolation.",
-    performance: "Souvik cut downstream production build spaces down dramatically, boasting over 35-40% bundle size reductions (saving 1MB+ from core payloads) to improve Core Web Vitals.",
-    experience: "He has over 9+ years of design engineering experience across 4 global Tier-1 companies: Cognizant, TCS, and Infosys.",
-    education: "Souvik holds an M.Tech from Bengal Engineering College (BEC), Shibpur, graduating in 2016."
-};
+/**
+ * UI Architecture Interaction Logic Layer - Souvik Zaminder Portfolio
+ */
 
 document.addEventListener("DOMContentLoaded", () => {
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-        // --- MOBILE FUNCTIONALITY: Go to Top Engine ---
-        const topBtn = document.getElementById("goToTopBtn");
-
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                topBtn.style.display = "block";
-            } else {
-                topBtn.style.display = "none";
-            }
-        };
-
-        topBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-    } else {
-        // --- DESKTOP FUNCTIONALITY: Interactive Chatbot Engine ---
-        const openChatBtn = document.getElementById("openChatBtn");
-        const closeChatBtn = document.getElementById("closeChat");
-        const chatbotWidget = document.getElementById("chatbotWidget");
-        const chatInput = document.getElementById("chatInput");
-        const sendChatBtn = document.getElementById("sendChat");
-        const chatMessages = document.getElementById("chatMessages");
-
-        openChatBtn.addEventListener("click", () => {
-            chatbotWidget.style.display = "flex";
-            openChatBtn.style.display = "none";
-        });
-
-        closeChatBtn.addEventListener("click", () => {
-            chatbotWidget.style.display = "none";
-            openChatBtn.style.display = "block";
-        });
-
-        const handleIncomingUserMessage = () => {
-            const query = chatInput.value.trim().toLowerCase();
-            if (!query) return;
-
-            // Render User Text
-            appendMessage(chatInput.value, "user");
-            chatInput.value = "";
-
-            // Evaluate simple intent matches matching your CV profile
-            setTimeout(() => {
-                let reply = "That sounds interesting! Feel free to drop an email to s.zaminder@gmail.com to ask Souvik about that specific architectural scope directly.";
-                
-                if (query.includes("angular") || query.includes("react") || query.includes("framework")) {
-                    reply = CV_KNOWLEDGE_BASE.frameworks;
-                } else if (query.includes("microfrontend") || query.includes("monorepo")) {
-                    reply = CV_KNOWLEDGE_BASE.microfrontends;
-                } else if (query.includes("performance") || query.includes("vitals") || query.includes("bundle")) {
-                    reply = CV_KNOWLEDGE_BASE.performance;
-                } else if (query.includes("experience") || query.includes("work") || query.includes("years")) {
-                    reply = CV_KNOWLEDGE_BASE.experience;
-                } else if (query.includes("education") || query.includes("college") || query.includes("m.tech")) {
-                    reply = CV_KNOWLEDGE_BASE.education;
-                }
-                
-                appendMessage(reply, "bot");
-            }, 600);
-        };
-
-        sendChatBtn.addEventListener("click", handleIncomingUserMessage);
-        chatInput.addEventListener("keypress", (e) => {
-            if (e.key === "Enter") handleIncomingUserMessage();
-        });
-
-        function appendMessage(text, sender) {
-            const msgBubble = document.createElement("div");
-            msgBubble.classList.add("msg", sender);
-            msgBubble.innerText = text;
-            chatMessages.appendChild(msgBubble);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-    }
+    initMobileScrollWidget();
+    initDesktopChatbotWidget();
+    initDownloadCVAction();
 });
+
+/**
+ * Mobile 'Go to Top' Display Threshold Configurations
+ */
+function initMobileScrollWidget() {
+    const mobileScrollBtn = document.getElementById("mobileGoToTop");
+    
+    if (!mobileScrollBtn) return;
+
+    window.addEventListener("scroll", () => {
+        // Toggle interaction states only when inside mobile dimensions below 768px
+        if (window.innerWidth <= 768) {
+            if (window.scrollY > 300) {
+                mobileScrollBtn.classList.add("show-scroll");
+            } else {
+                mobileScrollBtn.classList.remove("show-scroll");
+            }
+        }
+    });
+
+    mobileScrollBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
+
+/**
+ * Modern Automation Simulated Assistant (Desktop Specific Architecture Widget)
+ */
+function initDesktopChatbotWidget() {
+    const chatWidget = document.getElementById("desktopChatbotWidget");
+    const closeBtn = document.getElementById("closeChatbot");
+    const sendBtn = document.getElementById("sendChatbotBtn");
+    const inputField = document.getElementById("chatbotInput");
+    const logsContainer = document.getElementById("chatbotLogs");
+
+    if (!chatWidget || !sendBtn || !inputField) return;
+
+    // Direct conversational lookups targeting system expertise metrics
+    const engineeringDatabase = {
+        "vitals": "Souvik achieved 35% average load-time improvement and dropped bundle budgets by over 1MB across monorepos.",
+        "web vitals": "Souvik achieved 35% average load-time improvement and dropped bundle budgets by over 1MB across monorepos.",
+        "angular": "Expert with Angular (v8 to v20+). He builds enterprise components and manages scale inside modular environments.",
+        "react": "Proficient in React.js component architectures and token-driven independent platform integrations.",
+        "accessibility": "Deep WCAG 2.1 AA knowledge. Souvik received the internal Star Performer Award at Infosys specifically for Accessibility excellence.",
+        "a11y": "Deep WCAG 2.1 AA knowledge. Souvik received the internal Star Performer Award at Infosys specifically for Accessibility excellence.",
+        "microfrontend": "Specializes in microfrontend composition and independent module systems within complex corporate monorepos.",
+        "contact": "You can reach Souvik directly at s.zaminder@gmail.com or call +91 89024 59912 in Bengaluru."
+    };
+
+    closeBtn.addEventListener("click", () => {
+        chatWidget.style.display = "none";
+    });
+
+    function handleOutgoingMessage() {
+        const queryText = inputField.value.trim().toLowerCase();
+        if (!queryText) return;
+
+        // Render user bubble
+        appendChatBubble(inputField.value, "user-msg");
+        inputField.value = "";
+
+        // Evaluate automated context matched keywords response
+        setTimeout(() => {
+            let reply = "I am a structured engineering helper. Try asking about 'Angular', 'Web Vitals', 'Accessibility', or 'Contact'.";
+            
+            for (const key in engineeringDatabase) {
+                if (queryText.includes(key)) {
+                    reply = engineeringDatabase[key];
+                    break;
+                }
+            }
+            appendChatBubble(reply, "bot-msg");
+        }, 400);
+    }
+
+    sendBtn.addEventListener("click", handleOutgoingMessage);
+    inputField.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleOutgoingMessage();
+    });
+
+    function appendChatBubble(text, className) {
+        const pElement = document.createElement("p");
+        pElement.className = className;
+        pElement.textContent = text;
+        logsContainer.appendChild(pElement);
+        logsContainer.scrollTop = logsContainer.scrollHeight;
+    }
+}
+
+/**
+ * Handle Mock Actionable Event Triggers for Download CV Requirement
+ */
+function initDownloadCVAction() {
+    const downloadBtn = document.getElementById("downloadCV");
+    if (!downloadBtn) return;
+
+    downloadBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        alert("Initializing structural printable generation schema target for Souvik Zaminder's CV. Document matching 2026 validation will download momentarily.");
+    });
+}
