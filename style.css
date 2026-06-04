@@ -1,27 +1,104 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;500;600;700&family=Playfair+Display:ital,wght=0,400;0,600;1,400&display=swap');
+/* ==========================================================================
+   GLOBAL COMPONENT CORRECTIONS & TYPOGRAPHY
+   ========================================================================== */
 
-/* Global Custom Configurations */
+/* Base overrides to handle dark theme */
 body {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    background-color: #0B0F19;
-    color: #F3F4F6;
-    scroll-behavior: smooth;
+    background-color: #0B0F19; /* Deep slate background matching index.html */
+    color: #ffffff;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Typography Custom Variables */
-.serif-font { 
-    font-family: 'Playfair Display', serif; 
+/* 1. ENHANCED HEADER NAVIGATION */
+header {
+    height: 90px; /* Make header physically taller */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: rgba(11, 15, 25, 0.95) !important;
 }
 
-/* Border styling utilities matching the premium palette layout */
-.accent-border { 
-    border-color: rgba(243, 211, 168, 0.2); 
+header .text-xl {
+    font-size: 1.50rem !important; /* Make SOUVIK ZAMINDER significantly bigger */
+    letter-spacing: 0.2em !important;
 }
 
-.accent-text { 
-    color: #F3D3A8; 
+header a {
+    border-radius: 8px !important; /* Ensure header CTA button has rounded corners */
 }
 
-.accent-bg { 
-    background-color: #F3D3A8; 
+/* 2. UNIVERSAL ROUNDED CORNERS FOR COMPONENTS */
+/* Enforces modern rounded boundaries on all card containers */
+.stat-card, 
+.skill-card, 
+.client-card, 
+.timeline-item, 
+.education-box, 
+.contact-box, 
+#chatWidget,
+.message-bubble,
+.quick-action-btn {
+    border-radius: 16px !important; /* Noticeable, premium rounded corners */
+    overflow: hidden; /* Prevents background color bleeding past corners */
+}
+
+/* 3. PAST EXPERIENCE SECTION GRID FIX (Fixes image_2.png splits) */
+/* Forces layout to look like unified clickable card grids */
+.clients-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+@media (min-width: 768px) {
+    .clients-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Unified Card Styling to fix the split issue in image_2.png */
+.client-card {
+    display: flex !important;
+    flex-direction: column !important;
+    background-color: #111625 !important; /* Deep dark blue card bg */
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    padding: 24px !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.client-card:hover {
+    border-color: rgba(243, 211, 168, 0.4) !important; /* Glow on hover */
+    transform: translateY(-2px);
+}
+
+/* Fix text contrast inside cards */
+.client-card h3 {
+    font-size: 1.25rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px !important;
+}
+
+.client-url {
+    color: #F3D3A8 !important; /* Highly visible brand amber */
+    font-family: monospace;
+    font-size: 0.85rem !important;
+    margin-bottom: 12px !important;
+    opacity: 0.8;
+}
+
+.client-description {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.95rem !important;
+    line-height: 1.6 !important;
+}
+
+/* 4. MAIN LAYOUT BOTTOM PADDING */
+/* Ensures elements like the floating pill in image_2.png don't clip text */
+main {
+    padding-bottom: 120px !important;
 }
